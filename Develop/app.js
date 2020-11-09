@@ -10,6 +10,144 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+// array of questions for user
+const questionsManager = [{
+        type: "input",
+        message: "Hi and welcome to the Engineering Team Generator! What is the manager's name?",
+        name: "managerName"
+    },
+    {
+        type: "input",
+        message: "What is the manager's id?",
+        name: "managerId"
+    },
+    {
+        type: "input",
+        message: "What is the manager's email address?",
+        name: "managerEmail"
+    },
+    {
+        type: "input",
+        message: "What is the manager's office number?",
+        name: "managerOfficeNumber"
+    },
+    {
+        type: "confirm",
+        message: "Do you want to add any more employees that work under this manager?",
+        name: "addBool",
+        default: true
+    }
+];
+
+const addEmployee = [{
+    type: "list",
+    message: "What kind of employee do you want to add that works under this manager?",
+    choices: ["Engineer", "Intern", "None"],
+    name: "teamMember",
+}];
+
+const questionsEngineer = [{
+        type: "input",
+        message: "What is the engineer's name?",
+        name: "engineerName",
+    },
+    {
+        type: "input",
+        message: "What is the engineer's id?",
+        name: "engineerId",
+    },
+    {
+        type: "input",
+        message: "What is the engineer's email address?",
+        name: "engineerEmail",
+    },
+    {
+        type: "input",
+        message: "What is the engineer's GitHub username?",
+        name: "engineerGitHub",
+    },
+    {
+        type: "confirm",
+        message: "Do you want to add any more employees that work under this manager?",
+        name: "addBool",
+        default: true
+    }
+];
+
+const questionsIntern = [{
+        type: "input",
+        message: "What is the intern's name?",
+        name: "internName",
+    },
+    {
+        type: "input",
+        message: "What is the intern's id?",
+        name: "internId",
+    },
+    {
+        type: "input",
+        message: "What is the intern's email address?",
+        name: "internEmail",
+    },
+    {
+        type: "input",
+        message: "What is the intern's current school?",
+        name: "internSchool",
+    },
+    {
+        type: "confirm",
+        message: "Do you want to add any more employees that work under this manager?",
+        name: "addBool",
+        default: true
+    }
+];
+
+const output = [];
+
+// function to initialize program
+function init() {
+    inquirer.prompt(questionsManager).then(function (response) {
+        output.push(response);
+        if (response.addBool) {
+            addEmployeeFunc();
+        }
+    });
+}
+
+function addEmployeeFunc() {
+    inquirer.prompt(addEmployee).then(function (response) {
+        if (response.teamMember === "Engineer") {
+            engineer();
+        } else if (response.teamMember === "Intern") {
+            intern();
+        }
+    });
+}
+
+function engineer() {
+    inquirer.prompt(questionsEngineer).then(function (response) {
+        output.push(response);
+        if (response.addBool) {
+            addEmployeeFunc();
+        } else {
+            console.log(output);
+        }
+    });
+}
+
+function intern() {
+    inquirer.prompt(questionsIntern).then(function (response) {
+        output.push(response);
+        if (response.addBool) {
+            addEmployeeFunc();
+        } else {
+            console.log(output);
+        }
+    });
+}
+
+// function call to initialize program
+init();
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -20,7 +158,7 @@ const render = require("./lib/htmlRenderer");
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
+// `output` folder. You can use the variable `outputPath` above to target this location.
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
 
