@@ -107,10 +107,15 @@ const output = [];
 // function to initialize program
 function init() {
     inquirer.prompt(questionsManager).then(function (response) {
-        output.push(response);
+        const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOfficeNumber)
+        output.push(manager);
         if (response.addBool) {
             addEmployeeFunc();
+        } else {
+            renderOut();
         }
+    }).catch((e) => {
+        console.log(e)
     });
 }
 
@@ -121,28 +126,47 @@ function addEmployeeFunc() {
         } else if (response.teamMember === "Intern") {
             intern();
         }
+    }).catch((e) => {
+        console.log(e)
     });
 }
 
 function engineer() {
     inquirer.prompt(questionsEngineer).then(function (response) {
-        output.push(response);
+        const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGitHub)
+        output.push(engineer);
         if (response.addBool) {
             addEmployeeFunc();
         } else {
-            console.log(output);
+            renderOut();
         }
+    }).catch((e) => {
+        console.log(e)
     });
 }
 
 function intern() {
     inquirer.prompt(questionsIntern).then(function (response) {
-        output.push(response);
+        const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool)
+        output.push(intern);
         if (response.addBool) {
             addEmployeeFunc();
         } else {
-            console.log(output);
+            renderOut();
         }
+    }).catch(() => {});
+}
+
+function renderOut() {
+    console.log("test render function call");
+    console.log(output);
+    const renderOutput = render(output);
+    console.log(renderOutput);
+    fs.writeFile(outputPath, renderOutput, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Success!");
     });
 }
 
