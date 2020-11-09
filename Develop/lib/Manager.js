@@ -1,4 +1,4 @@
-// TODO: Write code to define and export the Manager class. HINT: This class should inherit from Employee.
+// define and export the Manager class. This class inherits from the Employee class.
 const Employee = require("./Employee");
 
 class Manager extends Employee {
