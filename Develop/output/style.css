@@ -23,8 +23,6 @@ body {
 /* footer */
 footer,
 footer p {
-    border-top: solid;
-    border-color: #314455;
     background-color: #303c6c;
     border-width: 6px;
     position: fixed;
