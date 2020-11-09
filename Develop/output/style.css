@@ -1,0 +1,34 @@
+/* font  */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+}
+
+.jumbotron {
+    background-color: #b4dfe5;
+}
+
+.card {
+    background-color: #edb5bf;
+}
+
+.card-body {
+    background-color: #4d6d9a;
+}
+
+.list-group-item {
+    background-color: #d2fdff;
+}
+
+/* footer */
+footer,
+footer p {
+    border-top: solid;
+    border-color: #314455;
+    background-color: #303c6c;
+    border-width: 6px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
