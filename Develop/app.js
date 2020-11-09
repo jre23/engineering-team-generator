@@ -5,12 +5,11 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-
+// these paths are used in fs.writeFile to target the correct folder locations
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
-
+// render is used to create the html output
 const render = require("./lib/htmlRenderer");
-
 // array of questions for manager parameters
 const questionsManager = [{
         type: "input",
@@ -39,7 +38,6 @@ const questionsManager = [{
         default: true
     }
 ];
-
 // array holding one question to determine if user wants to add more employees
 const addEmployee = [{
     type: "list",
@@ -47,7 +45,6 @@ const addEmployee = [{
     choices: ["Engineer", "Intern", "None"],
     name: "teamMember",
 }];
-
 // array of questions for engineer parameters
 const questionsEngineer = [{
         type: "input",
@@ -76,7 +73,6 @@ const questionsEngineer = [{
         default: true
     }
 ];
-
 // array of questions for intern parameters
 const questionsIntern = [{
         type: "input",
@@ -105,10 +101,8 @@ const questionsIntern = [{
         default: true
     }
 ];
-
 // define empty output array to hold employee objects
 const output = [];
-
 // function to initialize program. this function uses the questionsManager array and pushes the responses into the output array. uses addBool to determine if the user wants to add another employee, else call the render function
 function init() {
     inquirer.prompt(questionsManager).then(function (response) {
@@ -130,6 +124,8 @@ function addEmployeeFunc() {
             engineer();
         } else if (response.teamMember === "Intern") {
             intern();
+        } else {
+            renderOut();
         }
     }).catch((e) => {
         console.log(e)
