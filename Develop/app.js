@@ -10,26 +10,39 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 // render is used to create the html output
 const render = require("./lib/htmlRenderer");
+// function to validate responses
+// Was getting ReferenceError: Cannot access 'answerValidate' before initialization so moved this function before question arrays. Reference: https://www.npmjs.com/package/inquirer
+const answerValidate = async input => {
+    if (input.trim() === "") {
+        return "Please enter a valid response.";
+    } else {
+        return true;
+    }
+}
 // array of questions for manager parameters
 const questionsManager = [{
         type: "input",
         message: "Hi and welcome to the Engineering Team Generator! What is the manager's name?",
-        name: "managerName"
+        name: "managerName",
+        validate: answerValidate
     },
     {
         type: "input",
         message: "What is the manager's id?",
-        name: "managerId"
+        name: "managerId",
+        validate: answerValidate
     },
     {
         type: "input",
         message: "What is the manager's email address?",
-        name: "managerEmail"
+        name: "managerEmail",
+        validate: answerValidate
     },
     {
         type: "input",
         message: "What is the manager's office number?",
-        name: "managerOfficeNumber"
+        name: "managerOfficeNumber",
+        validate: answerValidate
     },
     {
         type: "confirm",
@@ -43,28 +56,32 @@ const addEmployee = [{
     type: "list",
     message: "What kind of employee do you want to add that works under this manager?",
     choices: ["Engineer", "Intern", "None"],
-    name: "teamMember",
+    name: "teamMember"
 }];
 // array of questions for engineer parameters
 const questionsEngineer = [{
         type: "input",
         message: "What is the engineer's name?",
         name: "engineerName",
+        validate: answerValidate
     },
     {
         type: "input",
         message: "What is the engineer's id?",
         name: "engineerId",
+        validate: answerValidate
     },
     {
         type: "input",
         message: "What is the engineer's email address?",
         name: "engineerEmail",
+        validate: answerValidate
     },
     {
         type: "input",
         message: "What is the engineer's GitHub username?",
         name: "engineerGitHub",
+        validate: answerValidate
     },
     {
         type: "confirm",
@@ -78,21 +95,25 @@ const questionsIntern = [{
         type: "input",
         message: "What is the intern's name?",
         name: "internName",
+        validate: answerValidate
     },
     {
         type: "input",
         message: "What is the intern's id?",
         name: "internId",
+        validate: answerValidate
     },
     {
         type: "input",
         message: "What is the intern's email address?",
         name: "internEmail",
+        validate: answerValidate
     },
     {
         type: "input",
         message: "What is the intern's current school?",
         name: "internSchool",
+        validate: answerValidate
     },
     {
         type: "confirm",
