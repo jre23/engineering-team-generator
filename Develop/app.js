@@ -104,8 +104,8 @@ const questionsIntern = [{
 // define empty output array to hold employee objects
 const output = [];
 // function to initialize program. this function uses the questionsManager array and pushes the responses into the output array. uses addBool to determine if the user wants to add another employee, else call the render function
-function init() {
-    inquirer.prompt(questionsManager).then(function (response) {
+const init = () => {
+    inquirer.prompt(questionsManager).then(response => {
         const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOfficeNumber)
         output.push(manager);
         if (response.addBool) {
@@ -118,8 +118,8 @@ function init() {
     });
 }
 // this function is called when the user wants to add another employee. uses if statement to determine if engineer or intern and calls corresponding function
-function addEmployeeFunc() {
-    inquirer.prompt(addEmployee).then(function (response) {
+const addEmployeeFunc = () => {
+    inquirer.prompt(addEmployee).then(response => {
         if (response.teamMember === "Engineer") {
             engineer();
         } else if (response.teamMember === "Intern") {
@@ -132,8 +132,8 @@ function addEmployeeFunc() {
     });
 }
 // this function is called when the user wants to add another engineer employee. adds user responses to the output array and checks if the user wants to keep adding more employees, else call render function
-function engineer() {
-    inquirer.prompt(questionsEngineer).then(function (response) {
+const engineer = () => {
+    inquirer.prompt(questionsEngineer).then(response => {
         const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGitHub)
         output.push(engineer);
         if (response.addBool) {
@@ -146,8 +146,8 @@ function engineer() {
     });
 }
 // this function is called when the user wants to add another intern employee. adds user responses to the output array and checks if the user wants to keep adding more employees, else call render function
-function intern() {
-    inquirer.prompt(questionsIntern).then(function (response) {
+const intern = () => {
+    inquirer.prompt(questionsIntern).then(response => {
         const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool)
         output.push(intern);
         if (response.addBool) {
@@ -160,9 +160,9 @@ function intern() {
     });
 }
 // this function is called when the user no longer wants to add more employees. sends output array to render function and uses response as the data parameter for fs.writeFile
-function renderOut() {
+const renderOut = () => {
     const renderOutput = render(output);
-    fs.writeFile(outputPath, renderOutput, function (err) {
+    fs.writeFile(outputPath, renderOutput, err => {
         if (err) {
             return console.log(err);
         }
