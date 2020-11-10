@@ -3,7 +3,7 @@
 ## Table of Contents
 
 1. [Description](#Description)
-2. [GitHub Repo and Deployment](#GitHub-Repo-and-Deployment)
+2. [GitHub Repo and Video Demonstration](#GitHub-Repo-and-Video-Demonstration)
 3. [Screenshots](#Screenshots)
 4. [Technologies](#Technologies)
 5. [Installation](#Installation)
@@ -12,21 +12,21 @@
 
 ## Description
 
-The goal for this project was to build a command-line application using Node.js that accepts user input and outputs an html file. The html file displays the summaries for each person that is entered on team. The software development process used to build this application was test-driven development.
+The goal for this project was to build a command-line application using Node.js that accepts user input and outputs an html file. The html file displays the summaries for each person that is entered on the team. The software development process used to build this application was test-driven development.
 
-## GitHub Repo and Deployment
+## GitHub Repo and Video Demonstration
 
 [GitHub repo](https://github.com/jre23/engineering-team-generator)
 
-[Video Demonstration]()
+[Video Demonstration](https://drive.google.com/file/d/1uQFVHzgb5txeK7JMdco0jabsf75Nd6Mb/view)
 
 ## Screenshots
 
-![engineering team generator screenshot 1]()
+![engineering team generator screenshot 1](https://user-images.githubusercontent.com/69170823/98611494-e2356e00-22a6-11eb-916e-f976ac722a57.png)
 
-![engineering team generator screenshot 2]()
+![engineering team generator screenshot 2](https://user-images.githubusercontent.com/69170823/98611588-085b0e00-22a7-11eb-87b0-64f2a526da4b.png)
 
-![engineering team generator screenshot 3]()
+![engineering team generator screenshot 3](https://user-images.githubusercontent.com/69170823/98611384-ae5a4880-22a6-11eb-9776-72adea8fb351.png)
 
 ## Technologies
 
