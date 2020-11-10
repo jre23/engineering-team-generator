@@ -24,9 +24,13 @@ The goal for this project was to build a command-line application using Node.js 
 
 ![engineering team generator screenshot 1](https://user-images.githubusercontent.com/69170823/98611494-e2356e00-22a6-11eb-916e-f976ac722a57.png)
 
-![engineering team generator screenshot 2](https://user-images.githubusercontent.com/69170823/98611588-085b0e00-22a7-11eb-87b0-64f2a526da4b.png)
+![engineering team generator screenshot 2](https://user-images.githubusercontent.com/69170823/98650410-b38eb600-22ed-11eb-94d3-39c1be0a339c.png)
 
-![engineering team generator screenshot 3](https://user-images.githubusercontent.com/69170823/98611384-ae5a4880-22a6-11eb-9776-72adea8fb351.png)
+![engineering team generator screenshot 3](https://user-images.githubusercontent.com/69170823/98650024-2ba8ac00-22ed-11eb-9260-7db22a7311f0.png)
+
+![engineering team generator screenshot 4](https://user-images.githubusercontent.com/69170823/98650145-585cc380-22ed-11eb-804c-be7c5777af93.png)
+
+![engineering team generator screenshot 5](https://user-images.githubusercontent.com/69170823/98650283-8b06bc00-22ed-11eb-8523-8f873c2d7df0.png)
 
 ## Technologies
 

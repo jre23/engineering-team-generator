@@ -4,6 +4,13 @@ body {
     background-color: white;
 }
 
+@media screen and (max-width: 405px) {
+    body {
+        font-size: 4.5vw;
+    }
+}
+
+/* jumbotron and cards */
 .jumbotron {
     background-color: #b4dfe5;
 }
@@ -20,11 +27,28 @@ body {
     background-color: #d2fdff;
 }
 
+.cont {
+    justify-content: center;
+}
+
+.cardStyle {
+    width: 19.7rem;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.card-body {
+    height: 212px;
+}
+
+.team-area {
+    text-align: center;
+}
+
 /* footer */
 footer,
 footer p {
     background-color: #303c6c;
-    border-width: 6px;
     position: fixed;
     left: 0;
     bottom: 0;
