@@ -169,6 +169,7 @@ const addEmployeeFunc = () => {
 // this function is called when the user wants to add another engineer employee. adds user responses to the output array and checks if the user wants to keep adding more employees, else call render function
 const engineer = () => {
     inquirer.prompt(questionsEngineer).then(response => {
+        response.engineerName = capLetters(response.engineerName);
         const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGitHub)
         output.push(engineer);
         if (response.addBool) {
@@ -183,6 +184,7 @@ const engineer = () => {
 // this function is called when the user wants to add another intern employee. adds user responses to the output array and checks if the user wants to keep adding more employees, else call render function
 const intern = () => {
     inquirer.prompt(questionsIntern).then(response => {
+        response.internName = capLetters(response.internName);
         response.internSchool = capLetters(response.internSchool);
         const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool)
         output.push(intern);
