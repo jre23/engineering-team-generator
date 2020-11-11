@@ -10,11 +10,19 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 // render is used to create the html output
 const render = require("./lib/htmlRenderer");
-// function to validate responses
-// Was getting ReferenceError: Cannot access 'answerValidate' before initialization so moved this function before question arrays. Reference: https://www.npmjs.com/package/inquirer
-const answerValidate = async input => {
-    if (input.trim() === "") {
+// validate function for string responses
+// Was getting ReferenceError: Cannot access 'answerValidate' before initialization so moved this function before question arrays. Reference: https://www.npmjs.com/package/inquirer and https://stackoverflow.com/questions/57321266/how-to-test-inquirer-validation
+const stringValidate = async input => {
+    if (input.trim() === "" || !isNaN(input.trim())) {
         return "Please enter a valid response.";
+    } else {
+        return true;
+    }
+}
+// validate function for number responses
+const numberValidate = async input => {
+    if (input.trim() === "" || isNaN(input.trim())) {
+        return "Please enter a valid number.";
     } else {
         return true;
     }
@@ -24,25 +32,25 @@ const questionsManager = [{
         type: "input",
         message: "Hi and welcome to the Engineering Team Generator! What is the manager's name?",
         name: "managerName",
-        validate: answerValidate
+        validate: stringValidate
     },
     {
         type: "input",
-        message: "What is the manager's id?",
+        message: "What is the manager's id number?",
         name: "managerId",
-        validate: answerValidate
+        validate: numberValidate
     },
     {
         type: "input",
         message: "What is the manager's email address?",
         name: "managerEmail",
-        validate: answerValidate
+        validate: stringValidate
     },
     {
         type: "input",
         message: "What is the manager's office number?",
         name: "managerOfficeNumber",
-        validate: answerValidate
+        validate: numberValidate
     },
     {
         type: "confirm",
@@ -63,25 +71,25 @@ const questionsEngineer = [{
         type: "input",
         message: "What is the engineer's name?",
         name: "engineerName",
-        validate: answerValidate
+        validate: stringValidate
     },
     {
         type: "input",
-        message: "What is the engineer's id?",
+        message: "What is the engineer's id number?",
         name: "engineerId",
-        validate: answerValidate
+        validate: numberValidate
     },
     {
         type: "input",
         message: "What is the engineer's email address?",
         name: "engineerEmail",
-        validate: answerValidate
+        validate: stringValidate
     },
     {
         type: "input",
         message: "What is the engineer's GitHub username?",
         name: "engineerGitHub",
-        validate: answerValidate
+        validate: stringValidate
     },
     {
         type: "confirm",
@@ -95,25 +103,25 @@ const questionsIntern = [{
         type: "input",
         message: "What is the intern's name?",
         name: "internName",
-        validate: answerValidate
+        validate: stringValidate
     },
     {
         type: "input",
-        message: "What is the intern's id?",
+        message: "What is the intern's id number?",
         name: "internId",
-        validate: answerValidate
+        validate: numberValidate
     },
     {
         type: "input",
         message: "What is the intern's email address?",
         name: "internEmail",
-        validate: answerValidate
+        validate: stringValidate
     },
     {
         type: "input",
         message: "What is the intern's current school?",
         name: "internSchool",
-        validate: answerValidate
+        validate: stringValidate
     },
     {
         type: "confirm",
