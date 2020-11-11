@@ -18,11 +18,11 @@ The goal for this project was to build a command-line application using Node.js 
 
 [GitHub repo](https://github.com/jre23/engineering-team-generator)
 
-[Video Demonstration](https://drive.google.com/file/d/1uQFVHzgb5txeK7JMdco0jabsf75Nd6Mb/view)
+[Video Demonstration](https://drive.google.com/file/d/1gEV8vPOYqx6g8Y8_k6EuXWLD8PdOxJRN/view)
 
 ## Screenshots
 
-![engineering team generator screenshot 1](https://user-images.githubusercontent.com/69170823/98611494-e2356e00-22a6-11eb-916e-f976ac722a57.png)
+![engineering team generator screenshot 1](https://user-images.githubusercontent.com/69170823/98774295-95818e00-239f-11eb-9793-1e00b446ecf2.png)
 
 ![engineering team generator screenshot 2](https://user-images.githubusercontent.com/69170823/98650410-b38eb600-22ed-11eb-94d3-39c1be0a339c.png)
 
