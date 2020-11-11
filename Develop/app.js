@@ -27,6 +27,11 @@ const numberValidate = async input => {
         return true;
     }
 }
+// validate function for email responses
+// placeholder 
+// const emailValidate = async input => {
+
+// }
 // array of questions for manager parameters
 const questionsManager = [{
         type: "input",
@@ -135,6 +140,7 @@ const output = [];
 // function to initialize program. this function uses the questionsManager array and pushes the responses into the output array. uses addBool to determine if the user wants to add another employee, else call the render function
 const init = () => {
     inquirer.prompt(questionsManager).then(response => {
+        response.managerName = capLetters(response.managerName);
         const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOfficeNumber)
         output.push(manager);
         if (response.addBool) {
@@ -177,6 +183,7 @@ const engineer = () => {
 // this function is called when the user wants to add another intern employee. adds user responses to the output array and checks if the user wants to keep adding more employees, else call render function
 const intern = () => {
     inquirer.prompt(questionsIntern).then(response => {
+        response.internSchool = capLetters(response.internSchool);
         const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool)
         output.push(intern);
         if (response.addBool) {
@@ -197,6 +204,21 @@ const renderOut = () => {
         }
         console.log("Success!");
     });
+}
+// this function capitalizes the first letter in each word of a string except for the word "of" i.e. university of washington => University of Washington
+const capLetters = str => {
+    let arrayStr = str.split(" ");
+    let capLetter = "";
+    let newString = "";
+    for (let i = 0; i < arrayStr.length; i++) {
+        if (arrayStr[i].toLowerCase() === "of") {
+            newString += "of ";
+        } else {
+            capLetter = arrayStr[i][0].toUpperCase();
+            newString += capLetter + arrayStr[i].slice(1, arrayStr[i].length) + " ";
+        }
+    }
+    return newString.trim();
 }
 // function call to initialize program
 init();
