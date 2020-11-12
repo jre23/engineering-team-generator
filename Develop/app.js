@@ -28,10 +28,13 @@ const numberValidate = async input => {
     }
 }
 // validate function for email responses
-// placeholder 
-// const emailValidate = async input => {
-
-// }
+const emailValidate = async input => {
+    if (!input.trim().includes("@") || !input.trim().includes(".com") && !input.trim().includes(".edu") && !input.trim().includes(".net") && !input.trim().includes(".co.uk")) {
+        return "Please enter a valid email address.";
+    } else {
+        return true;
+    }
+}
 // array of questions for manager parameters
 const questionsManager = [{
         type: "input",
@@ -49,7 +52,7 @@ const questionsManager = [{
         type: "input",
         message: "What is the manager's email address?",
         name: "managerEmail",
-        validate: stringValidate
+        validate: emailValidate
     },
     {
         type: "input",
@@ -88,7 +91,7 @@ const questionsEngineer = [{
         type: "input",
         message: "What is the engineer's email address?",
         name: "engineerEmail",
-        validate: stringValidate
+        validate: emailValidate
     },
     {
         type: "input",
@@ -120,7 +123,7 @@ const questionsIntern = [{
         type: "input",
         message: "What is the intern's email address?",
         name: "internEmail",
-        validate: stringValidate
+        validate: emailValidate
     },
     {
         type: "input",
