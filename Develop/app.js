@@ -220,7 +220,7 @@ const capLetters = str => {
             newString += "of ";
         } else {
             capLetter = arrayStr[i][0].toUpperCase();
-            newString += capLetter + arrayStr[i].slice(1, arrayStr[i].length) + " ";
+            newString += capLetter + arrayStr[i].slice(1, arrayStr[i].length).toLowerCase() + " ";
         }
     }
     return newString.trim();
